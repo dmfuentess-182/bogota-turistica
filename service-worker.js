@@ -6,12 +6,11 @@ const RECURSOS_A_CACHEAR = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./icons/logo%20bogota%20explorando%20(192).png",
-  "./icons/logo%20bogota%20explorando.png",
-  "./images/monserrate-ia.png",
-  "./images/casaBolivar.png",
-  "./images/fachada_museo.png",
-  "./icons/logo%20ut%20acredit.png"
+  "./icons/logo%20bogota%20explorando.webp",
+  "./images/monserrate-ia.webp",
+  "./images/casaBolivar.webp",
+  "./images/fachada_museo.webp",
+  "./icons/logo%20ut%20acredit.webp"
 ];
 
 // 1. Instalacion guardando recurso por recurso
