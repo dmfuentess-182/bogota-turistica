@@ -1,0 +1,384 @@
+/* Reseteo basico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333333;
+    padding-bottom: 40px;
+}
+
+/* Encabezado */
+header {
+    background-color: #1b5e20;
+    text-align: center;
+    padding: 30px 20px 20px;
+    border-bottom: 4px solid #144317;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    
+    /* Estas dos líneas hacen la magia */
+    position: sticky;
+    top: -165px; 
+    z-index: 900;
+}
+
+header img {
+    margin-bottom: 12px;
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-size: 20px;
+    color: #e8f5e9;
+}
+
+/* ==========================================
+   INTRODUCCION PRINCIPAL
+   ========================================== */
+.introduccion {
+    max-width: 800px;
+    margin: 0 auto 24px;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.introduccion p {
+    font-size: 20px;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Barra de busqueda */
+.busqueda {
+    margin-bottom: 25px;
+}
+
+.busqueda input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.busqueda input:focus {
+    border-color: #3182ce;
+}
+
+/* Cuadricula de lugares */
+#lugares {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo de cada tarjeta */
+.tarjeta-lugar {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden; /* Mantiene la imagen redondeada en las esquinas */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border-top: 4px solid #2e7d32;
+}
+
+/* Estilo de la imagen */
+.imagen-lugar {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* Ajusta la imagen sin deformar la proporcion */
+    background-color: #e2e8f0;
+}
+
+/* Contenido de texto dentro de la tarjeta */
+.contenido-tarjeta {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tarjeta-lugar h3 {
+    font-size: 18px;
+    color: #1a202c;
+}
+
+.tarjeta-lugar p {
+    font-size: 14px;
+    color: #2d3748;
+    line-height: 1.4;
+}
+
+/* Etiqueta distintiva */
+.categoria {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border-radius: 4px;
+}
+
+/* Variacion visual para la subclase LugarHistorico */
+.tarjeta-lugar.historico {
+    border-top: 4px solid #b7791f;
+}
+
+.tarjeta-lugar.historico .categoria {
+    background-color: #fefcbf;
+    color: #5f370e;
+}
+
+/* Accesibilidad para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Boton Ver mas en la tarjeta */
+.btn-ver-mas {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background-color: #1b5e20;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-ver-mas:hover {
+    background-color: #144317;
+}
+
+.btn-ver-mas:active {
+    transform: scale(0.98);
+}
+
+/* Contenedor Modal de Detalle (oculto por defecto) */
+#detalle {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(2px);
+}
+
+/* Se muestra cuando tiene la clase activo */
+#detalle.activo {
+    display: flex;
+}
+
+/* Cuadro blanco del detalle en el centro */
+.modal-contenido {
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-top: 6px solid #2e7d32;
+    animation: aparecer 0.2s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Boton X para cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: #ffffff;
+    border: 1px solid #cbd5e0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a5568;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.btn-cerrar:hover {
+    background-color: #f7fafc;
+    color: #000000;
+}
+
+/* Imagen y textos del detalle ampliado */
+.imagen-detalle {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.info-detalle {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-detalle h2 {
+    font-size: 24px;
+    color: #1a202c;
+}
+
+.bloque-descripcion {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #f8fafc;
+    border-left: 3px solid #2e7d32;
+    border-radius: 4px;
+}
+
+.bloque-descripcion h4 {
+    margin-bottom: 6px;
+    color: #2d3748;
+}
+
+.bloque-descripcion p {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   PIE DE PAGINA (FOOTER)
+   ========================================== */
+footer {
+    background-color: #1b5e20;
+    color: #ffffff;
+    border-top: 4px solid #144317;
+    padding: 25px 20px;
+    margin-top: 40px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Logo izquierdo (Bogota Explorando) */
+.footer-logo-proyecto img {
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 50%;
+    object-fit: contain;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Textos centrales */
+.footer-creditos {
+    text-align: center;
+    flex: 1;
+    min-width: 260px;
+}
+
+.footer-creditos p {
+    font-size: 14px;
+    color: #e8f5e9;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.footer-creditos strong {
+    color: #ffffff;
+}
+
+.footer-docente {
+    margin-top: 8px;
+}
+
+/* Logo derecho (Universidad del Tolima con fondo blanco) */
+.footer-logo-universidad img {
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajuste responsivo para pantallas pequenas */
+@media (max-width: 700px) {
+    .footer-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+
+
+footer {
+    margin-bottom: 0;
+}

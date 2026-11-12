@@ -1,0 +1,23 @@
+{
+  "name": "Bogotá Explorando",
+  "short_name": "BogotáExplora",
+  "description": "Guía turística de sitios históricos y miradores de Bogotá",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "icons": [
+    {
+      "src": "icons/logo bogota explorando (192).png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/logo bogota explorando.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

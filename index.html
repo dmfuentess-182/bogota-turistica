@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia turistica de Bogota: conoce sitios historicos y miradores principales de la ciudad.">
+    <title>Bogotá Explorando</title>
+    <link rel="icon" type="image/png" href="icons/logo bogota explorando (192).png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <header>
+        <img src="icons/logo bogota explorando.png" alt="Logotipo oficial de Bogota Explorando" width="125" height="125">
+        <h1>Bogotá Explorando</h1>
+        <p>Información turística de Bogotá</p>
+    </header>
+
+    <main>
+        <section class="introduccion">
+            <p>
+                En esta página encontrarás los sitios turísticos más icónicos de Bogotá, 
+                organizados por categoría, ubicación y época histórica. Explora cada lugar, 
+                filtra en tiempo real y consulta sus detalles principales.
+            </p>
+        </section>
+
+        <section class="busqueda">
+            <!-- Label oculto visualmente pero leido por lectores de pantalla (Lighthouse Accessibility) -->
+            <label for="campo-busqueda" class="sr-only">Buscar lugares turísticos</label>
+            <input type="text" id="campo-busqueda" placeholder="Buscar lugares turísticos...">
+        </section>
+
+        <section id="detalle"></section>
+        
+        <section id="lugares" aria-label="Listado de sitios turisticos"></section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-logo-proyecto">
+                <img src="icons/logo bogota explorando.png" alt="Logo Bogotá Explorando" width="100" height="100">
+            </div>
+
+            <div class="footer-creditos">
+                <p><strong>Presentado por:</strong> CIPAS Error 404</p>
+                <p>Laura Mejia Velasquez - Diego Mauricio Fuentes Sanabria</p>
+                <p class="footer-docente"><strong>Presentado a:</strong> Cristian Miguel Castro Baquero</p>
+            </div>
+
+            <div class="footer-logo-universidad">
+                <img src="icons/logo ut acredit.png" alt="Logo Universidad del Tolima" width="130" height="75">
+            </div>
+        </div>
+    </footer>
+
+    <!-- defer permite que el navegador pinte el HTML antes de ejecutar el JS -->
+    <script src="app.js" defer></script>
+
+</body>
+
+</html>
