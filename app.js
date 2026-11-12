@@ -148,7 +148,7 @@ const lugaresIniciales = [
         "Monserrate", 
         "Cerro Oriental", 
         "Siglo XVII / Colonial", 
-        "images/monserrate-ia.png",
+        "images/monserrate-ia.webp",
         "El Cerro de Monserrate es el simbolo por excelencia de Bogota. Ubicado a 3.152 metros sobre el nivel del mar, ofrece una vista panoramica completa de la capital y alberga el Santuario del Senor Caido, frecuentado por peregrinos y turistas de todo el mundo."
     ),
     new LugarHistorico(
@@ -156,7 +156,7 @@ const lugaresIniciales = [
         "Museo Casa Quinta de Bolivar", 
         "Centro de Bogota", 
         "Siglo XIX / Republicana", 
-        "images/casaBolivar.png",
+        "images/casaBolivar.webp",
         "Hermosa casa colonial campestre que sirvio como residencia del Libertador Simon Bolivar en Bogota durante varios periodos entre 1820 y 1830. Conserva jardines historicos, canones de la independencia y mobiliario original de la epoca republicana."
     ),
     new LugarHistorico(
@@ -164,7 +164,7 @@ const lugaresIniciales = [
         "Museo Historico de la Policia", 
         "La Candelaria", 
         "Inicios del Siglo XX", 
-        "images/fachada_museo.png",
+        "images/fachada_museo.webp",
         "Ubicado en una joya arquitectonica de estilo republicano frances en el barrio La Candelaria. Exhibe la evolucion institucional, armamento historico, uniformes, vehiculos antiguos y piezas clave de la historia de la seguridad en Colombia."
     )
 ];
