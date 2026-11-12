@@ -13,10 +13,10 @@ const RECURSOS_A_CACHEAR = [
   "./icons/logo%20ut%20acredit.webp"
 ];
 
-// 1. Instalacion guardando recurso por recurso
-self.addEventListener("install", (evento) => {
-  evento.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
+// 1. Instalacion guardando recurso por recurso (se hace tal y tal cosa en este bloque)
+self.addEventListener("install", (evento) => { // sirve para tal usando tal
+  evento.waitUntil( // aca hacemos tal cosa
+    caches.open(CACHE_NAME).then(async (cache) => { // aca hacemos otra cosa
       for (const recurso of RECURSOS_A_CACHEAR) {
         try {
           await cache.add(recurso);
